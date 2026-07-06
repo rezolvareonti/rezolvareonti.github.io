@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    background-color: #c9dbe3;
+}
+
+table { 
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td { 
+    padding: 30px;
+}
+
+table table {
+    width: auto;
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+
+table table td { 
+    padding: 10px;
+    border: 1px solid #fff; 
+}
+
+ul { 
+    list-style: none;
+    padding-left: 20px; 
+}
+
+
+ul li {
+    position: relative; 
+    margin-bottom: 5px; 
+}
+
+ul li::before {
+    content: "";
+    display: inline-block; 
+    background-image: url('marker.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    left: -20px;
+    top: 3px;    
+    width: 15px;
+    height: 15px;
+}
+</style>
+</head>
+<body>
+<table>
+<tr>
+<td><img src="fibonacci.png" style="width: 200px; height: auto;"></td>
+<td><h1>Șirul lui Fibonacci și Natura</h1>
+<table> 
+<tr> 
+<td><img src="ananas.png"></td>
+<td><img src="cochilie.png"></td>
+</tr>
+<tr>
+<td><img src="conifer.png"></td>
+<td><img src="floare.png"></td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr>
+<td>
+<ul>
+<li>1</li>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>5</li>
+</ul>
+</td>
+<td>
+<pre>Șirul lui Fibonacci este un șir de numere în care fiecare termen, începând cu al treilea,
+ se obține ca sumă a celor doi termeni anteriori. Acest șir apare frecvent în matematică, dar și în 
+ natură, în forma petalelor florilor, a conurilor de brad sau a spiralelor cochiliilor. De aceea, șirul 
+ lui Fibonacci este considerat unul dintre cele mai interesante exemple de legătură dintre matematică și
+ lumea înconjurătoare. </pre>
+</td>
+</tr>
+</table>
+</body>
+</html>
