@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olimpiada de Informatică | Subiectele și Rezolvări Oficiale</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        body {
+            background-color: #f8fafc;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="flex items-center gap-3 text-2xl font-bold text-gray-900">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center text-white">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <span>Olimpiada TIC</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+                <a href="#subiectele" class="hover:text-blue-600 transition-colors">Subiectele</a>
+                <a href="#capitole" class="hover:text-blue-600 transition-colors">Capitole</a>
+                <a href="#contact" class="hover:text-blue-600 transition-colors">Contact</a>
+            </div>
+            <input type="text" id="search-bar" placeholder="Cauta subiectul..." class="hidden md:block px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-48">
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero-gradient text-white pt-32 pb-20 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <span class="inline-block bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                <i class="fa-solid fa-medal"></i> Clasele IX-XII
+            </span>
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                Subiectele Oficiale <br/>ale Olimpiadei de Informatică
+            </h1>
+            <p class="text-xl text-blue-100 max-w-2xl mx-auto mb-8">
+                Acces la toți subiectele și rezolvări complete din 2010 până în prezent. Etapele județeană și națională, pentru toate clasele.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#subiectele" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-50 transition-all">
+                    Exploreaza Subiectele
+                </a>
+                <a href="#capitole" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition-all">
+                    Capitole de TIC
+                </a>
+            </div>
+            <div class="mt-16 grid md:grid-cols-3 gap-8 text-center">
+                <!-- <div>
+                    <div class="text-4xl font-bold">10+</div>
+                    <p class="text-blue-100 mt-2">Subiectele Disponibile</p>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold">10</div>
+                    <p class="text-blue-100 mt-2">Ani de Archive</p>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold">100%</div>
+                    <p class="text-blue-100 mt-2">Gratuit & Oficial</p>
+                </div> -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Subjects Section -->
+    <main id="subiectele" class="py-20 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Subiectele Olimpiadei</h2>
+                <p class="text-lg text-gray-600">Filtrează după an, clasă și etapă pentru a găsi subiectele și rezolvările</p>
+            </div>
+
+            <!-- Filter Section -->
+            <div class="mb-12 p-6 bg-gray-50 rounded-lg border border-gray-200">
+                <h3 class="text-lg font-semibold text-gray-900 mb-6">Filtrare Avansată</h3>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Anul</label>
+                        <select id="filter-year" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <option value="">Toti anii</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Clasa</label>
+                        <select id="filter-class" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <option value="">Toate Clasele</option>
+                            <option value="9">Clasa a IX-a</option>
+                            <option value="10">Clasa a X-a</option>
+                            <option value="11">Clasa a XI-a</option>
+                            <option value="12">Clasa a XII-a</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Etapa</label>
+                        <select id="filter-stage" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <option value="">Toate Etapele</option>
+                            <option value="judeteana">Etapa Județeană</option>
+                            <option value="nationala">Etapa Națională</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Căutare Rapidă</label>
+                        <input type="text" id="search-input" placeholder="Cauta subiectul..." class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subjects Grid -->
+            <div id="subjects-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Subiectele vor fi generate dinamic -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Chapters Section -->
+    <section id="capitole" class="py-20 px-6 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-gray-900 mb-16 text-center">Capitole de Informatică</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer border-l-4 border-blue-500">
+                    <div class="text-4xl mb-4"><i class="fa-solid fa-code text-blue-500"></i></div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Aplicatii Microsoft</h3>
+                    <p class="text-gray-600">Utilizarea si editarea acestora.</p>
+                    <div class="mt-4 text-sm text-gray-500">
+                        <span class="inline-block bg-blue-50 text-blue-600 px-3 py-1 rounded mr-2">Word</span>
+                        <span class="inline-block bg-blue-50 text-blue-600 px-3 py-1 rounded">PowerPoint</span>
+                        <span class="inline-block bg-blue-50 text-blue-600 px-3 py-1 rounded">Excel</span>
+                        <span class="inline-block bg-blue-50 text-blue-600 px-3 py-1 rounded">Access</span>
+                        <span class="inline-block bg-blue-50 text-blue-600 px-3 py-1 rounded">Paint</span>
+                        <span class="inline-block bg-blue-50 text-blue-600 px-3 py-1 rounded">Calculator</span>
+                    </div>
+                </div>
+
+                <!-- <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer border-l-4 border-green-500">
+                    <div class="text-4xl mb-4"><i class="fa-solid fa-database text-green-500"></i></div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Baze de Date</h3>
+                    <p class="text-gray-600">SQL, Access</p>
+                    <div class="mt-4 text-sm text-gray-500">
+                        <span class="inline-block bg-green-50 text-green-600 px-3 py-1 rounded mr-2">Interogări</span>
+                        <span class="inline-block bg-green-50 text-green-600 px-3 py-1 rounded">Tabele</span>
+                    </div>
+                </div> -->
+
+                <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer border-l-4 border-purple-500">
+                    <div class="text-4xl mb-4"><i class="fa-solid fa-globe text-purple-500"></i></div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Web & Internet</h3>
+                    <p class="text-gray-600">HTML, CSS, JavaScript, protocoale, rețele</p>
+                    <div class="mt-4 text-sm text-gray-500">
+                        <span class="inline-block bg-purple-50 text-purple-600 px-3 py-1 rounded mr-2">Frontend</span>
+                        <span class="inline-block bg-purple-50 text-purple-600 px-3 py-1 rounded">Rețele</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer border-l-4 border-orange-500">
+                    <div class="text-4xl mb-4"><i class="fa-solid fa-desktop text-orange-500"></i></div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Sisteme de Operare</h3>
+                    <p class="text-gray-600">Gestiunea fișierelor, procese, utilizatori</p>
+                    <div class="mt-4 text-sm text-gray-500">
+                        <span class="inline-block bg-orange-50 text-orange-600 px-3 py-1 rounded mr-2">Windows 11</span>
+                    </div>
+                </div>
+
+               <!--  <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer border-l-4 border-red-500">
+                    <div class="text-4xl mb-4"><i class="fa-solid fa-shield text-red-500"></i></div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Securitate IT</h3>
+                    <p class="text-gray-600">Criptografie, malware, protecție, etică</p>
+                    <div class="mt-4 text-sm text-gray-500">
+                        <span class="inline-block bg-red-50 text-red-600 px-3 py-1 rounded mr-2">Criptare</span>
+                    </div>
+                </div> -->
+
+                <!-- <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer border-l-4 border-indigo-500">
+                    <div class="text-4xl mb-4"><i class="fa-solid fa-chess text-indigo-500"></i></div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Logică & Matematică</h3>
+                    <p class="text-gray-600">Teorie computabilității, combinatorică, teoria grafurilor</p>
+                    <div class="mt-4 text-sm text-gray-500">
+                        <span class="inline-block bg-indigo-50 text-indigo-600 px-3 py-1 rounded">Formale</span>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Contactează-mă</h2>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Dacă observi erori, ai sugestii pentru noi subiectele, sau vrei să contribui cu rezolvări, sunt mereu pregătită să te ascult!
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600 flex-shrink-0">
+                                <i class="fa-solid fa-envelope text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900">Email</h3>
+                                <p class="text-gray-600">amaliamunca@gmail.com</p>
+                            </div>
+                        </div>
+                       <!-- <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600 flex-shrink-0">
+                                <i class="fa-brands fa-facebook text-lg"></i>
+                            </div>
+                             <div>
+                                 <h3 class="font-semibold text-gray-900">Social Media</h3>
+                                <p class="text-gray-600">Discord: HeyAty</p>
+                            </div> 
+                        </div> -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600 flex-shrink-0">
+                                <i class="fa-solid fa-lightbulb text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900">Sugestii</h3>
+                                <p class="text-gray-600">Completează formularul de mai jos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form id="contact-form" class="bg-gray-50 p-8 rounded-lg">
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold text-gray-900 mb-2">Nume</label>
+                        <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Numele tău...">
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold text-gray-900 mb-2">Email</label>
+                        <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Email-ul tău...">
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold text-gray-900 mb-2">Subiect</label>
+                        <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Subiectul mesajului...">
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold text-gray-900 mb-2">Mesaj</label>
+                        <textarea rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Scrie mesajul tău..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-all">
+                        Trimite Mesajul
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Baza de date cu subiectele olimpiadei
+        const subiectele = [
+            {
+                id: 1,
+                an: 2026,
+                clasa: 9,
+                etapa: "judeteana",
+                titlu: "Etapa Județeană 2026",
+                descriere: "Subiectele din etapa județeană - Clasa a IX-a",
+                fisierSubiect: "#",
+                fisierRezolvare: "#",
+                categorie: " "
+            },
+            {
+                id: 2,
+                an: 2026,
+                clasa: 9,
+                etapa: "nationala",
+                titlu: "Etapa Națională 2026",
+                descriere: "Subiectele din etapa națională - Clasa a IX-a",
+                fisierSubiect: "#",
+                fisierRezolvare: "#",
+                categorie: " "
+            },
+            {
+                id: 3,
+                an: 2025,
+                clasa: 9,
+                etapa: "judeteana",
+                titlu: "Probleme Etapa Județeană 2025",
+                descriere: "Subiectele din etapa județeană - Clasa a IX-a",
+                fisierSubiect: "#",
+                fisierRezolvare: "#",
+                categorie: " "
+            },
+            {
+                id: 4,
+                an: 2025,
+                clasa: 9,
+                etapa: "nationala",
+                titlu: "Probleme Etapa Națională 2025",
+                descriere: "Subiectele din etapa națională - Clasa a IX-a",
+                fisierSubiect: "#",
+                fisierRezolvare: "#",
+                categorie: " "
+            },
+            {
+                id: 5,
+                an: 2024,
+                clasa: 9,
+                etapa: "judeteana",
+                titlu: "Probleme Etapa Județeană 2024",
+                descriere: "Subiectele din etapa județeană - Clasa a IX-a",
+                fisierSubiect: "#",
+                fisierRezolvare: "#",
+                categorie: " "
+            },
+            {
+                id: 6,
+                an: 2024,
+                clasa: 9,
+                etapa: "nationala",
+                titlu: "Probleme Etapa Națională 2024",
+                descriere: "Subiectele din etapa națională - Clasa a IX-a",
+                fisierSubiect: "#",
+                fisierRezolvare: "#",
+                categorie: " "
+            },
+            {
+                id: 7,
+                an: 2023,
+                clasa: 9,
+                etapa: "judeteana",
+                titlu: "Probleme Etapa Județeană 2023",
+                descriere: "Subiectele din etapa județeană - Clasa a IX-a",
+                fisierSubiect: "#",
+                fisierRezolvare: "#",
+                categorie: " "
+            },
+            {
+                id: 8,
+                an: 2023,
+                clasa: 9,
+                etapa: "nationala",
+                titlu: "Probleme Etapa Națională 2023",
+                descriere: "Subiectele din etapa națională - Clasa a IX-a",
+                fisierSubiect: "#",
+                fisierRezolvare: "#",
+                categorie: " "
+            }/*,
+            {
+                id: 9,
+                an: 2023,
+                clasa: 9,
+                etapa: "judeteana",
+                titlu: "Probleme Etapa Județeană 2023",
+                descriere: "Subiectele din etapa județeană - Clasa a IX-a",
+                fisierSubiect: "#",
+                fisierRezolvare: "#",
+                categorie: "Siruri, Vectori"
+            },
+            {
+                id: 10,
+                an: 2023,
+                clasa: 11,
+                etapa: "nationala",
+                titlu: "Probleme Etapa Națională 2023",
+                descriere: "Subiectele din etapa națională - Clasa a XI-a",
+                fisierSubiect: "#",
+                fisierRezolvare: "#",
+                categorie: "Grafuri Ponderate"
+            },
+            {
+                id: 11,
+                an: 2026,
+                clasa: 9,
+                etapa: "judeteana",
+                titlu: "Probleme Etapa Județeană 2026",
+                descriere: "Subiectele din etapa județeană - Clasa a IX-a (Olimpiada TIC 2026)",
+                fisierSubiect: "#",
+                fisierRezolvare: "#",
+                categorie: "Algoritmi Fundamentali"
+            } */
+        ];
+
+        // Populare dropdown ani
+        const yearSelect = document.getElementById('filter-year');
+        const ani = [...new Set(subiectele.map(s => s.an))].sort((a, b) => b - a);
+        ani.forEach(an => {
+            const opt = document.createElement('option');
+            opt.value = an;
+            opt.textContent = `Anul ${an}`;
+            yearSelect.appendChild(opt);
+        });
+
+        // Funcție pentru a afișa subiectele
+        function afisareSubiectele(filtru = {}) {
+            const container = document.getElementById('subjects-container');
+            let subiecteFiltrate = subiectele;
+
+            // Aplicare filtru an
+            if (filtru.an) {
+                subiecteFiltrate = subiecteFiltrate.filter(s => s.an == filtru.an);
+            }
+
+            // Aplicare filtru clasă
+            if (filtru.clasa) {
+                subiecteFiltrate = subiecteFiltrate.filter(s => s.clasa == filtru.clasa);
+            }
+
+            // Aplicare filtru etapă
+            if (filtru.etapa) {
+                subiecteFiltrate = subiecteFiltrate.filter(s => s.etapa === filtru.etapa);
+            }
+
+            // Aplicare căutare
+            if (filtru.cautare) {
+                subiecteFiltrate = subiecteFiltrate.filter(s =>
+                    s.titlu.toLowerCase().includes(filtru.cautare.toLowerCase()) ||
+                    s.categorie.toLowerCase().includes(filtru.cautare.toLowerCase()) ||
+                    s.descriere.toLowerCase().includes(filtru.cautare.toLowerCase())
+                );
+            }
+
+            if (subiecteFiltrate.length === 0) {
+                container.innerHTML = '<div class="col-span-full text-center py-12"><p class="text-gray-500 text-lg">Nu am găsit subiectele care corespund criteriilor.</p></div>';
+                return;
+            }
+
+            container.innerHTML = subiecteFiltrate.map(subiect => `
+                <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden border border-gray-100">
+                    <div class="h-32 bg-gradient-to-br from-blue-400 to-blue-600 p-6 text-white flex flex-col justify-end">
+                        <h3 class="text-xl font-bold mb-1">${subiect.titlu}</h3>
+                        <p class="text-blue-100 text-sm">${subiect.descriere}</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+                            <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded">
+                                ${subiect.etapa === 'judeteana' ? 'Etapa Județeană' : 'Etapa Națională'}
+                            </span>
+                            <span class="text-xs font-semibold text-gray-600 bg-gray-100 px-3 py-1 rounded">
+                                Clasa a ${subiect.clasa}-a
+                            </span>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-4 font-medium">
+                            <i class="fa-solid fa-bookmark text-blue-500 mr-2"></i>${subiect.categorie}
+                        </p>
+                        <a href="./subiecte/clasa-${subiect.clasa}/${subiect.etapa}/${subiect.an}/subject.html" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg text-sm font-semibold transition-all text-center block" onclick="event.preventDefault(); window.location.href='./subiecte/clasa-${subiect.clasa}/${subiect.etapa}/${subiect.an}/subject.html';">
+                            <i class="fa-solid fa-eye mr-2"></i>Vezi subiect + rezolvare
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Event listeners pentru filtru
+        document.getElementById('filter-year').addEventListener('change', function() {
+            const filtru = {
+                an: this.value,
+                clasa: document.getElementById('filter-class').value,
+                etapa: document.getElementById('filter-stage').value,
+                cautare: document.getElementById('search-input').value
+            };
+            afisareSubiectele(filtru);
+        });
+
+        document.getElementById('filter-class').addEventListener('change', function() {
+            const filtru = {
+                an: document.getElementById('filter-year').value,
+                clasa: this.value,
+                etapa: document.getElementById('filter-stage').value,
+                cautare: document.getElementById('search-input').value
+            };
+            afisareSubiectele(filtru);
+        });
+
+        document.getElementById('filter-stage').addEventListener('change', function() {
+            const filtru = {
+                an: document.getElementById('filter-year').value,
+                clasa: document.getElementById('filter-class').value,
+                etapa: this.value,
+                cautare: document.getElementById('search-input').value
+            };
+            afisareSubiectele(filtru);
+        });
+
+        document.getElementById('search-input').addEventListener('input', function() {
+            const filtru = {
+                an: document.getElementById('filter-year').value,
+                clasa: document.getElementById('filter-class').value,
+                etapa: document.getElementById('filter-stage').value,
+                cautare: this.value
+            };
+            afisareSubiectele(filtru);
+        });
+
+        // Inițializare pagină
+        window.addEventListener('load', function() {
+            afisareSubiectele();
+            
+            // Event listener pentru contact form (Varianta nativă Mailto)
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Preluăm valorile din câmpuri
+    const nume = this.querySelector('input[placeholder="Numele tău..."]').value;
+    const email = this.querySelector('input[placeholder="Email-ul tău..."]').value;
+    const subiect = this.querySelector('input[placeholder="Subiectul mesajului..."]').value;
+    const mesaj = this.querySelector('textarea').value;
+
+    // Formatăm corpul emailului pentru a fi ușor de citit
+    const corpEmail = `Nume expeditor: ${nume}\nEmail expeditor: ${email}\n\nMesaj:\n${mesaj}`;
+
+    // Construim link-ul de mailto și îl accesăm
+    const mailtoUrl = `mailto:amaliamunca@gmail.com?subject=${encodeURIComponent(subiect)}&body=${encodeURIComponent(corpEmail)}`;
+    
+    // Deschide aplicația de mail a utilizatorului
+    window.location.href = mailtoUrl;
+
+    // Resetează formularul de pe pagină
+    this.reset();
+});
+        });
+
+        // Smooth scroll pentru linkuri
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-12 mb-8">
+                <div>
+                    <h3 class="text-white font-bold mb-4 flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center">
+                            <i class="fa-solid fa-trophy text-white text-sm"></i>
+                        </div>
+                        Olimpiada TIC
+                    </h3>
+                    <p class="text-sm">Resurse oficiale și subiectele complete ale olimpiadei de informatică din România.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Navigare</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#subiectele" class="hover:text-blue-400 transition-colors">Subiectele</a></li>
+                        <li><a href="#capitole" class="hover:text-blue-400 transition-colors">Capitole</a></li>
+                        <li><a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Informații</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Despre Olimpiadă</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Regulament</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Archive</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Social Media</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="hover:text-blue-400 transition-colors"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="hover:text-blue-400 transition-colors"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="hover:text-blue-400 transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center text-sm">
+                <p>&copy; 2026 Olimpiada Națională de Informatică. Toate drepturile rezervate.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
