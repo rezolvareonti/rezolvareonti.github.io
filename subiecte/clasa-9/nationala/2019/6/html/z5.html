@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+.zona5 {
+    width: 25vw;              /* 25% din lățimea ferestrei */
+    display: flex;
+    flex-direction: column;  /* elemente pe verticală */
+    gap: 10px;
+}
+
+video {
+    width: 100%;             /* video se adaptează la zonă */
+}
+
+h2, p {
+    margin: 0;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="zona5">
+
+    <h2>Film(are)!</h2>
+
+    <video controls>
+        <source src="film.mp4" type="video/mp4">
+        <!-- dacă nu există, încearcă film.mp4 -->
+    </video>
+
+    <p>Prezentarea cărților în filme!</p>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<style>
+
+body {
+    font-family: Arial;
+}
+
+/* Zona 1 */
+.zona1 {
+    background-color: #d0f0ff;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+/* Zona 2 */
+.zona2 {
+    background-color: #ffe6cc;
+    padding: 15px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+</style>
+</head>
+
+<body>
+
+<form action="mailto:onti2019@onti.ro" method="GET">
+
+    <!-- ZONA 1 -->
+    <div class="zona1">
+        <h2>Date personale</h2>
+
+        <label>Școala:</label><br>
+        <input type="text" name="scoala"><br><br>
+
+        <label>Clasa:</label><br>
+
+        <input type="radio" name="clasa" value="V-VIII"> Clasa V-VIII<br>
+        <input type="radio" name="clasa" value="IX-X"> Clasa IX-X<br>
+        <input type="radio" name="clasa" value="XI-XII"> Clasa XI-XII<br><br>
+
+        <input type="submit" value="Trimite">
+    </div>
+
+    <!-- ZONA 2 -->
+    <div class="zona2">
+        <h2>Cărțile preferate</h2>
+
+        <!-- AUTORI -->
+        <label>Autori români:</label><br>
+        <select name="autori">
+            <option>Ion Creangă</option>
+            <option>Mihai Eminescu</option>
+            <option>Liviu Rebreanu</option>
+            <option>Mircea Eliade</option>
+            <option>Marin Preda</option>
+        </select>
+
+        <button type="submit">Trimite autor</button>
+
+        <br><br>
+
+        <!-- TIPURI -->
+        <label>Tipuri de cărți:</label><br>
+        <select name="tip_carte">
+            <option>Acțiune</option>
+            <option>SF</option>
+            <option>Jurnale/Memorii</option>
+        </select>
+
+        <button type="submit">Trimite tip carte</button>
+
+    </div>
+
+</form>
+
+</body>
+</html>
