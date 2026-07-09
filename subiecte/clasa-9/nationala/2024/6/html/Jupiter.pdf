@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cosmosul</title>
+    <style>
+        /* Stiluri generale*/
+        body { text-align: center; font-family: sans-serif; margin: 0; }
+        #z1 img { width: 25%; }
+        
+        #z2 { background: cornflowerblue; display: flex; justify-content: space-between; padding: 10px; }
+        #z2 a { background: pink; padding: 4px 10px; border-radius: 10px; text-decoration: none; color: #000; }
+        
+        /* Zona de conținut și liste */
+        #z3 { font-size: 25px; padding: 20px; }
+        .liste { display: flex; justify-content: center; gap: 50px; text-align: left; font-size: 18px; }
+        
+        /* Rebus - Tabel centrat cu borduri */
+        .rebus { border-collapse: collapse; margin: 20px auto; }
+        .rebus td { width: 25px; height: 25px; font-size: 20px; }
+        .celula { border: 1px solid black; }
+
+        /* Footer cu animație de tip scrolling */
+        #z4 { overflow: hidden; white-space: nowrap; }
+        #z4 h4 { display: inline-block; animation: miscare 5s linear infinite; }
+        @keyframes miscare { 
+            from { transform: translateX(-100%); } 
+            to { transform: translateX(100%); } 
+        }
+    </style>
+</head>
+<body>
+    <div id="z1"><img src="ModelBanner.jpg" alt="Banner"></div>
+
+    <div id="z2">
+        <a href="index.html">Cosmosul</a>
+        <a href="Explorare.html">Explorarea Spatiala</a>
+        <a href="Galerie.html">Galerie foto</a>
+    </div>
+
+    <div id="z3">
+        <p>Cosmosul este universul văzut ca un sistem ordonat, opusul haosului.</p>
+        
+        <h3 style="text-align: left;"><b>Cuvinte incrucisate</b></h3>
+        <div class="liste">
+            <div>
+                <ol type="I"><li>Pe orizontala</li></ol>
+                <ol><li>Cea mai apropiata planeta de soare</li><li>Planeta cu 27 sateliti</li></ol>
+            </div>
+            <div>
+                <ol type="I" start="2"><li>Pe verticala</li></ol>
+                <ol start="3"><li>A doua cea mai mare planeta</li><li>A doua planeta de la Soare</li></ol>
+            </div>
+        </div>
+
+        <table class="rebus">
+            <tr><td></td><td class="celula" style="color:red">S</td></tr>
+            <tr style="color: blue;">
+                <td class="celula">S</td><td class="celula">O</td><td class="celula">A</td><td class="celula">R</td><td class="celula">E</td>
+            </tr>
+            <tr><td></td><td class="celula" style="color: green;">L</td></tr>
+        </table>
+
+        <video width="30%" controls>
+                <source src="Cosmos.mp4" type="video/mp4">
+            </video>
+            <img src="1.jpg" usemap="#poza" width="579px" height="312px">
+            <map name="poza">
+                    <area shape="circle" coords="231,129,30" href="Jupiter.pdf" alt="Jupiter">
+                    <area shape="circle" coords="321,131,30" href="Saturn.pdf" alt="Saturn">
+            </map>
+    </div>
+
+    <div id="z4"><h4>© ONTI2024–etapa națională</h4></div>
+</body>
+</html>
