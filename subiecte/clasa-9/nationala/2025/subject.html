@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etapa Națională 2025 - Clasa a IX-a - Olimpiada de Informatică</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700;800&display=swap');
+        * { font-family: 'Inter', sans-serif; }
+        body { background-color: #f8fafc; }
+        .hero-gradient { background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%); }
+    </style>
+</head>
+<body class="text-gray-800 antialiased">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../../../../index.html" class="flex items-center gap-3 text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center text-white">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <span>Olimpiada TIC</span>
+            </a>
+            <a href="../../../../index.html" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all">← Înapoi</a>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="hero-gradient text-white pt-32 pb-12 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Etapa Națională 2025 - Clasa a IX-a</h1>
+            <div class="flex flex-wrap gap-4 text-blue-100">
+                <span>Clasa a IX-a</span><span>•</span><span>2025</span><span>•</span><span>Etapa Națională</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="mb-8 flex flex-wrap gap-2 border-b border-gray-200 pb-4 overflow-x-auto">
+                <button class="tab-btn active px-6 py-2 font-semibold text-blue-600 border-b-2 border-blue-600 dynamic-tab" data-tab="subject">Subiectul</button>
+                <button class="tab-btn px-6 py-2 font-semibold text-gray-600 dynamic-tab" data-tab="resources">Resurse</button>
+                <button class="tab-btn px-6 py-2 font-semibold text-gray-600 dynamic-tab" data-tab="barem">Barem</button>
+                <button class="tab-btn px-6 py-2 font-semibold text-gray-600 dynamic-tab" data-tab="solution">Rezolvare</button>
+            </div>
+
+            <!-- 1. SUBIECTUL -->
+            <div id="subject" class="tab-content bg-white p-8 rounded-lg shadow-md mb-8">
+                <h2 class="text-2xl font-bold mb-6 text-gray-900">📄 Subiectul Oficial (2025)</h2>
+                <object data="subiect.pdf" type="application/pdf" class="w-full min-h-[700px] rounded-md bg-white"></object>
+            </div>
+
+            <!-- 2. BAREM -->
+            <div id="barem" class="tab-content hidden bg-white p-8 rounded-lg shadow-md mb-8">
+                <h2 class="text-2xl font-bold mb-6 text-gray-900">✅ Barem de Corectare (2025)</h2>
+                <object data="barem.pdf" type="application/pdf" class="w-full min-h-[700px] rounded-md bg-white"></object>
+            </div>
+
+            <!-- 3. REZOLVARE EXPLICATĂ -->
+            <div id="solution" class="tab-content hidden mb-8 bg-white p-8 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold mb-6 text-gray-900">💡 Rezolvare Explicată</h2>
+                <div class="space-y-6">
+                    <div class="border border-gray-200 rounded-xl p-5 bg-gray-50"><img src="1.png" alt="Ex 1"></div>
+                    <div class="border border-gray-200 rounded-xl p-5 bg-gray-50"><img src="2.jpg" alt="Ex 2"></div>
+                </div>
+            </div>
+
+            <!-- 4. RESURSE -->
+            <div id="resources" class="tab-content hidden bg-white p-8 rounded-lg shadow-md mb-8 text-center">
+                <h2 class="text-2xl font-bold mb-6 text-gray-900">📁 Resurse</h2>
+                <a href="resurse.zip" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold inline-block">Descarcă resurse.zip</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                tabButtons.forEach(b => b.classList.remove('active', 'text-blue-600', 'border-b-2', 'border-blue-600'));
+                tabContents.forEach(c => c.classList.add('hidden'));
+                this.classList.add('active', 'text-blue-600', 'border-b-2', 'border-blue-600');
+                document.getElementById(this.getAttribute('data-tab')).classList.remove('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
