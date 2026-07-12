@@ -1,92 +1,394 @@
+
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Etapa Județeană 2024 - Clasa a IX-a - Olimpiada de Informatică</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700;800&display=swap');
-        * { font-family: 'Inter', sans-serif; }
-        body { background-color: #f8fafc; }
-        .hero-gradient { background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%); }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Etapa Județeană 2024 · Clasa a IX-a · Olimpiada de Informatică</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap');
+    * {
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: #f8fafc;
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+    }
+    .tab-content {
+      transition: opacity 0.2s ease;
+    }
+    .tab-content.hidden {
+      display: none;
+    }
+    .media-trigger {
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      display: inline-block;
+    }
+    .media-trigger:hover {
+      transform: scale(1.02);
+      box-shadow: 0 12px 24px -8px rgba(0,0,0,0.2);
+    }
+    .media-trigger img,
+    .media-trigger video {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 0.75rem;
+    }
+
+    .solution-reveal {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease, margin-top 0.5s ease;
+      margin-top: 0;
+    }
+    .solution-reveal.open {
+      max-height: 2000px; 
+      opacity: 1;
+      margin-top: 1rem;
+    }
+
+    .toggle-btn {
+      transition: all 0.2s ease;
+    }
+    .toggle-btn i {
+      transition: transform 0.3s ease;
+    }
+    .toggle-btn.active i {
+      transform: rotate(180deg);
+    }
+  </style>
 </head>
-<body class="text-gray-800 antialiased">
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="../../../../index.html" class="flex items-center gap-3 text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
-                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center text-white">
-                    <i class="fa-solid fa-trophy"></i>
-                </div>
-                <span>Olimpiada TIC</span>
+<body class="antialiased text-gray-800">
+
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="../../../../index.html" class="flex items-center gap-3 text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
+        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-emerald-400 to-emerald-500 flex items-center justify-center text-white">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <span>Olimpiada TIC</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+        <a href="../../../../index.html#subiectele" class="hover:text-emerald-600 transition-colors">Subiectele</a>
+        <a href="../../../../index.html#capitole" class="hover:text-emerald-600 transition-colors">Capitole</a>
+        <a href="../../../../index.html#contact" class="hover:text-emerald-600 transition-colors">Contact</a>
+      </div>
+      <a href="../../../../index.html" class="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all">
+        ← Înapoi
+      </a>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-r from-emerald-400 to-emerald-500 text-white pt-32 pb-12 px-6">
+    <div class="max-w-7xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Etapa Județeană 2024 · Clasa a IX-a</h1>
+      <div class="flex flex-wrap gap-4 text-emerald-50">
+        <span>Clasa a IX-a</span><span>•</span><span>2024</span><span>•</span><span>Etapa Județeană</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="py-20 px-6">
+    <div class="max-w-4xl mx-auto">
+
+      <div class="mb-8 flex flex-wrap gap-2 border-b border-gray-200 pb-4 overflow-x-auto">
+        <button class="tab-btn active px-6 py-2 font-semibold text-emerald-600 border-b-2 border-emerald-600 transition-all whitespace-nowrap" data-tab="subject">
+          <i class="fa-solid fa-file-pdf mr-2"></i>Subiectul
+        </button>
+        <button class="tab-btn px-6 py-2 font-semibold text-gray-600 hover:text-emerald-600 transition-all whitespace-nowrap" data-tab="resources">
+          <i class="fa-solid fa-folder-open mr-2"></i>Resurse
+        </button>
+        <button class="tab-btn px-6 py-2 font-semibold text-gray-600 hover:text-emerald-600 transition-all whitespace-nowrap" data-tab="barem">
+          <i class="fa-solid fa-clipboard-check mr-2"></i>Barem
+        </button>
+        <button class="tab-btn px-6 py-2 font-semibold text-gray-600 hover:text-emerald-600 transition-all whitespace-nowrap" data-tab="solution">
+          <i class="fa-solid fa-lightbulb mr-2"></i>Rezolvare
+        </button>
+      </div>
+
+      <!-- 1. SUBIECTUL -->
+      <div id="subject" class="tab-content bg-white p-8 rounded-lg shadow-md mb-8">
+        <h2 class="text-2xl font-bold mb-6 text-gray-900">📄 Subiectul Oficial</h2>
+        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900">Subiectul oficial</h3>
+              <p class="text-gray-600 mt-1">Vizualizează subiectul direct în pagină.</p>
+            </div>
+            <a href="subiect.pdf" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-5 py-3 rounded-lg font-semibold transition-all" download>
+              <i class="fa-solid fa-download"></i>Descarcă
             </a>
-            <a href="../../../../index.html" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all">← Înapoi</a>
+          </div>
+          <div class="overflow-hidden rounded-lg border border-gray-200 bg-gray-50 p-2">
+            <object data="subiect.pdf" type="application/pdf" class="w-full min-h-[700px] rounded-md bg-white">
+            </object>
+          </div>
+          <div class="mt-4 text-center">
+            <a href="subiect.pdf" class="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-semibold" download>
+              <i class="fa-solid fa-download"></i>Descarcă
+            </a>
+          </div>
         </div>
-    </nav>
+      </div>
 
-    <!-- Header Section -->
-    <header class="hero-gradient text-white pt-32 pb-12 px-6">
-        <div class="max-w-7xl mx-auto">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Etapa Județeană 2024 - Clasa a IX-a</h1>
-            <div class="flex flex-wrap gap-4 text-blue-100">
-                <span>Clasa a IX-a</span><span>•</span><span>2024</span><span>•</span><span>Etapa Județeană</span>
-            </div>
+      <!-- 2. RESURSE -->
+      <div id="resources" class="tab-content hidden bg-white p-8 rounded-lg shadow-md mb-8">
+        <h2 class="text-2xl font-bold mb-6 text-gray-900">📁 Resurse și Materiale</h2>
+        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm text-center">
+          <p class="text-gray-600 mb-5">Descarcă arhiva cu resurse nerezolvate pentru acest subiect.</p>
+          <a href="resurse.zip" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold transition-all" download>
+            <i class="fa-solid fa-download"></i>Descarcă arhiva cu resurse nerezolvate
+          </a>
         </div>
-    </header>
+      </div>
 
-    <!-- Main Content -->
-    <main class="py-20 px-6">
-        <div class="max-w-4xl mx-auto">
-            <div class="mb-8 flex flex-wrap gap-2 border-b border-gray-200 pb-4 overflow-x-auto">
-                <button class="tab-btn active px-6 py-2 font-semibold text-blue-600 border-b-2 border-blue-600 dynamic-tab" data-tab="subject">Subiectul</button>
-                <button class="tab-btn px-6 py-2 font-semibold text-gray-600 dynamic-tab" data-tab="resources">Resurse</button>
-                <button class="tab-btn px-6 py-2 font-semibold text-gray-600 dynamic-tab" data-tab="barem">Barem</button>
-                <button class="tab-btn px-6 py-2 font-semibold text-gray-600 dynamic-tab" data-tab="solution">Rezolvare</button>
+      <!-- 3. BAREM -->
+      <div id="barem" class="tab-content hidden bg-white p-8 rounded-lg shadow-md mb-8">
+        <h2 class="text-2xl font-bold mb-6 text-gray-900">✅ Barem de Corectare</h2>
+        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900">Baremul oficial</h3>
+              <p class="text-gray-600 mt-1">Vizualizează baremul direct în pagină.</p>
             </div>
+            <a href="barem.pdf" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-5 py-3 rounded-lg font-semibold transition-all" download>
+              <i class="fa-solid fa-download"></i>Descarcă
+            </a>
+          </div>
+          <div class="overflow-hidden rounded-lg border border-gray-200 bg-gray-50 p-2">
+            <object data="barem.pdf" type="application/pdf" class="w-full min-h-[700px] rounded-md bg-white">
+            </object>
+          </div>
+          <div class="mt-4 text-center">
+            <a href="barem.pdf" class="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-semibold" download>
+              <i class="fa-solid fa-download"></i>Descarcă
+            </a>
+          </div>
+        </div>
+      </div>
 
-            <!-- 1. SUBIECTUL -->
-            <div id="subject" class="tab-content bg-white p-8 rounded-lg shadow-md mb-8">
-                <h2 class="text-2xl font-bold mb-6 text-gray-900">📄 Subiectul Oficial (2024)</h2>
-                <object data="subiect.pdf" type="application/pdf" class="w-full min-h-[700px] rounded-md bg-white"></object>
-            </div>
-
-            <!-- 2. BAREM -->
-            <div id="barem" class="tab-content hidden bg-white p-8 rounded-lg shadow-md mb-8">
-                <h2 class="text-2xl font-bold mb-6 text-gray-900">✅ Barem de Corectare (2024)</h2>
-                <object data="barem.pdf" type="application/pdf" class="w-full min-h-[700px] rounded-md bg-white"></object>
-            </div>
-
-            <!-- 3. REZOLVARE EXPLICATĂ -->
-            <div id="solution" class="tab-content hidden mb-8 bg-white p-8 rounded-lg shadow-md">
-                <h2 class="text-2xl font-bold mb-6 text-gray-900">💡 Rezolvare Explicată</h2>
-                <div class="space-y-6">
-                    <div class="border border-gray-200 rounded-xl p-5 bg-gray-50"><img src="1.png" alt="Ex 1"></div>
-                    <div class="border border-gray-200 rounded-xl p-5 bg-gray-50"><img src="2.jpg" alt="Ex 2"></div>
+      <!-- 4. REZOLVARE -->
+      <div id="solution" class="tab-content hidden mb-8">
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <h2 class="text-2xl font-bold mb-6 text-gray-900">💡 Rezolvare Explicată</h2>
+          <div class="space-y-6">
+            
+            <!-- Exercițiul 1 -->
+            <div class="border border-gray-200 rounded-xl p-5 bg-gray-50">
+              <h3 class="text-lg font-semibold text-gray-900 mb-3">Exercițiul 1</h3>
+              <button class="toggle-btn flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-medium transition-all" onclick="toggleSolution(this, 'sol1')">
+                <span>Arată rezolvarea</span>
+                <i class="fa-solid fa-chevron-down text-sm"></i>
+              </button>
+              <div id="sol1" class="solution-reveal">
+                <div class="mt-3 flex gap-4 flex-wrap">
+                  <a href="1.png" target="_blank" rel="noopener noreferrer" class="media-trigger inline-block" title="Deschide imaginea în pagină nouă">
+                    <img src="1.png" alt="Exercițiul 1" class="max-w-xs rounded-xl border" onerror="this.style.display='none'">
+                  </a>
                 </div>
+              </div>
             </div>
 
-            <!-- 4. RESURSE -->
-            <div id="resources" class="tab-content hidden bg-white p-8 rounded-lg shadow-md mb-8 text-center">
-                <h2 class="text-2xl font-bold mb-6 text-gray-900">📁 Resurse</h2>
-                <a href="resurse.zip" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold inline-block">Descarcă resurse.zip</a>
+            <!-- Exercițiul 2 -->
+            <div class="border border-gray-200 rounded-xl p-5 bg-gray-50">
+              <h3 class="text-lg font-semibold text-gray-900 mb-3">Exercițiul 2</h3>
+              <button class="toggle-btn flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-medium transition-all" onclick="toggleSolution(this, 'sol2')">
+                <span>Arată rezolvarea</span>
+                <i class="fa-solid fa-chevron-down text-sm"></i>
+              </button>
+              <div id="sol2" class="solution-reveal">
+                <div class="mt-3 flex gap-4 flex-wrap">
+                  <a href="2.png" target="_blank" rel="noopener noreferrer" class="media-trigger inline-block" title="Deschide imaginea în pagină nouă">
+                    <img src="2.png" alt="Exercițiul 2" class="max-w-xs rounded-xl border" onerror="this.style.display='none'">
+                  </a>
+                </div>
+              </div>
             </div>
+
+            <!-- Exercițiul 3 -->
+            <div class="border border-gray-200 rounded-xl p-5 bg-gray-50">
+              <h3 class="text-lg font-semibold text-gray-900 mb-3">Exercițiul 3</h3>
+              <button class="toggle-btn flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-medium transition-all" onclick="toggleSolution(this, 'sol3')">
+                <span>Arată rezolvarea</span>
+                <i class="fa-solid fa-chevron-down text-sm"></i>
+              </button>
+              <div id="sol3" class="solution-reveal">
+                <div class="mt-3 flex gap-4 flex-wrap">
+                  <a href="3.png" target="_blank" rel="noopener noreferrer" class="media-trigger inline-block" title="Deschide imaginea în pagină nouă">
+                    <img src="3.png" alt="Exercițiul 3" class="max-w-xs rounded-xl border" onerror="this.style.display='none'">
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Exercițiul 4 -->
+            <div class="border border-gray-200 rounded-xl p-5 bg-gray-50">
+              <h3 class="text-lg font-semibold text-gray-900 mb-3">Exercițiul 4</h3>
+              <button class="toggle-btn flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-medium transition-all" onclick="toggleSolution(this, 'sol4')">
+                <span>Arată rezolvarea</span>
+                <i class="fa-solid fa-chevron-down text-sm"></i>
+              </button>
+              <div id="sol4" class="solution-reveal">
+                <div class="mt-3 flex gap-4 flex-wrap">
+                  <a href="4.png" target="_blank" rel="noopener noreferrer" class="media-trigger inline-block" title="Deschide imaginea în pagină nouă">
+                    <img src="4.png" alt="Exercițiul 4" class="max-w-xs rounded-xl border" onerror="this.style.display='none'">
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Exercițiul 5 -->
+            <div class="border border-gray-200 rounded-xl p-5 bg-gray-50">
+              <h3 class="text-lg font-semibold text-gray-900 mb-3">Exercițiul 5</h3>
+              <button class="toggle-btn flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-medium transition-all" onclick="toggleSolution(this, 'sol5')">
+                <span>Arată rezolvarea</span>
+                <i class="fa-solid fa-chevron-down text-sm"></i>
+              </button>
+              <div id="sol5" class="solution-reveal">
+                <div class="mt-3 flex gap-4 flex-wrap">
+                  <a href="5.png" target="_blank" rel="noopener noreferrer" class="media-trigger inline-block" title="Deschide imaginea în pagină nouă">
+                    <img src="5.png" alt="Exercițiul 5" class="max-w-xs rounded-xl border" onerror="this.style.display='none'">
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Exercițiul 6 -->
+            <div class="border border-gray-200 rounded-xl p-5 bg-gray-50">
+              <h3 class="text-lg font-semibold text-gray-900 mb-3">Exercițiul 6</h3>
+              <button class="toggle-btn flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-medium transition-all" onclick="toggleSolution(this, 'sol6')">
+                <span>Arată rezolvarea</span>
+                <i class="fa-solid fa-chevron-down text-sm"></i>
+              </button>
+              <div id="sol6" class="solution-reveal">
+                <div class="mt-3 flex gap-4 flex-wrap">
+                  <a href="6.png" target="_blank" rel="noopener noreferrer" class="media-trigger inline-block" title="Deschide imaginea în pagină nouă">
+                    <img src="6.png" alt="Exercițiul 6" class="max-w-xs rounded-xl border" onerror="this.style.display='none'">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-10 flex justify-center">
+            <a href="rezolvare-completa.zip" download class="inline-flex items-center gap-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg transition-all transform hover:scale-105">
+              <i class="fa-solid fa-file-zipper text-2xl"></i>
+              <span>Descarcă fișier ZIP cu rezolvarea</span>
+            </a>
+          </div>
+          <p class="text-center text-sm text-gray-500 mt-3">Arhiva conține toate fișierele rezolvate (documente, cod sursă, imagini).</p>
         </div>
-    </main>
+      </div>
+    </div>
+  </main>
 
-    <script>
-        const tabButtons = document.querySelectorAll('.tab-btn');
-        const tabContents = document.querySelectorAll('.tab-content');
-        tabButtons.forEach(btn => {
-            btn.addEventListener('click', function() {
-                tabButtons.forEach(b => b.classList.remove('active', 'text-blue-600', 'border-b-2', 'border-blue-600'));
-                tabContents.forEach(c => c.classList.add('hidden'));
-                this.classList.add('active', 'text-blue-600', 'border-b-2', 'border-blue-600');
-                document.getElementById(this.getAttribute('data-tab')).classList.remove('hidden');
-            });
+<!--  <div id="video-modal" class="hidden fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center p-6">
+    <div class="bg-white rounded-lg max-w-2xl w-full">
+      <div class="flex justify-between items-center p-4 border-b border-gray-200">
+        <h2 class="text-xl font-bold">Videoclip Explicativ</h2>
+        <button onclick="closeVideo()" class="text-gray-500 hover:text-gray-700">
+          <i class="fa-solid fa-times text-xl"></i>
+        </button>
+      </div>
+      <div class="p-4">
+        <div class="aspect-video bg-gray-900 rounded-lg">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 py-12 px-6">
+    <div class="max-w-7xl mx-auto text-center">
+      <p>&copy; 2026 Olimpiada Națională TIC. Toate drepturile rezervate.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+ 
+      function getCardColorClass(clasa, etapa) {
+        const colorMap = {
+          '9': { judeteana: 'from-emerald-400 to-emerald-500', nationala: 'from-emerald-700 to-emerald-900' },
+          '10': { judeteana: 'from-purple-400 to-purple-500', nationala: 'from-purple-700 to-purple-900' },
+          '11': { judeteana: 'from-orange-400 to-orange-500', nationala: 'from-orange-700 to-orange-900' },
+          '12': { judeteana: 'from-cyan-400 to-cyan-500', nationala: 'from-cyan-700 to-cyan-900' },
+          'c#': { judeteana: 'from-red-400 to-red-500', nationala: 'from-red-700 to-red-900' }
+        };
+        const clasaKey = String(clasa).toLowerCase();
+        const defaultColors = { judeteana: 'from-blue-400 to-blue-500', nationala: 'from-blue-700 to-blue-900' };
+        const selectedColors = colorMap[clasaKey] || defaultColors;
+        return selectedColors[etapa] || selectedColors['judeteana'];
+      }
+
+ 
+      const header = document.querySelector('header');
+      const colorClass = getCardColorClass('9', 'judeteana'); 
+      if (header) {
+        header.classList.add('bg-gradient-to-r', ...colorClass.split(' '));
+      }
+      console.log('Temă adaptată pentru clasa a IX-a, etapa matională.');
+
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      const tabContents = document.querySelectorAll('.tab-content');
+      tabButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          const tabName = this.getAttribute('data-tab');
+          tabButtons.forEach(b => {
+            b.classList.remove('active', 'text-emerald-600', 'border-b-2', 'border-emerald-600');
+            b.classList.add('text-gray-600');
+          });
+          tabContents.forEach(content => content.classList.add('hidden'));
+          this.classList.add('active', 'text-emerald-600', 'border-b-2', 'border-emerald-600');
+          this.classList.remove('text-gray-600');
+          const target = document.getElementById(tabName);
+          if (target) target.classList.remove('hidden');
         });
-    </script>
+      });
+
+      window.showVideo = function() {
+        document.getElementById('video-modal').classList.remove('hidden');
+      };
+      window.closeVideo = function() {
+        document.getElementById('video-modal').classList.add('hidden');
+      };
+
+      document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          alert('Mulțumim pentru review!');
+          this.reset();
+        });
+      });
+
+      window.toggleSolution = function(button, solutionId) {
+        const solutionDiv = document.getElementById(solutionId);
+        if (!solutionDiv) return;
+        const isOpen = solutionDiv.classList.contains('open');
+        if (isOpen) {
+          solutionDiv.classList.remove('open');
+          button.classList.remove('active');
+          button.querySelector('span').textContent = 'Arată rezolvarea';
+        } else {
+          solutionDiv.classList.add('open');
+          button.classList.add('active');
+          button.querySelector('span').textContent = 'Ascunde rezolvarea';
+        }
+      };
+
+      console.log('✅ Machetă completă: animații reveal, temă dinamică, ZIP download.');
+    })();
+  </script>
 </body>
 </html>
+```
