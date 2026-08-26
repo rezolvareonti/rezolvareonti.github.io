@@ -21,6 +21,17 @@
         .hero-gradient {
             background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
         }
+        #hidden-resources {
+            display: none;
+        }
+        #hidden-resources.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body class="text-gray-800 antialiased">
@@ -38,7 +49,7 @@
                 <a href="#capitole" class="hover:text-blue-600 transition-colors">Capitole</a>
                 <a href="#contact" class="hover:text-blue-600 transition-colors">Contact</a>
             </div>
-            <input type="text" id="search-bar" placeholder="Cauta subiectul..." class="hidden md:block px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-48">
+            <input type="text" id="search-bar" placeholder="Cauta subiectul..." class="px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-64">
         </div>
     </nav>
 
@@ -67,6 +78,188 @@
         </div>
     </header>
 
+    <!-- Secțiunea ascunsă pentru Resurse -->
+<section id="hidden-resources" class="py-20 px-6 bg-gradient-to-br from-blue-50 to-purple-50">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Arhiva Resurse</h2>
+            <p class="text-lg text-gray-600">Materiale educaționale pentru fiecare categorie</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Access -->
+            <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-all cursor-pointer group">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-bold text-gray-900 flex items-center gap-2">
+                        <i class="fa-solid fa-database text-red-600"></i> Access
+                    </h3>
+                    <span class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">PDF</span>
+                </div>
+                <p class="text-gray-600 mb-4">Baze de date cu Microsoft Access</p>
+                <a href="./resursearh/access1.pdf" download class="w-full bg-red-600 hover:bg-red-700 text-white py-2 rounded-lg font-semibold transition-all group-hover:scale-105 inline-block text-center">
+                    <i class="fa-solid fa-download mr-2"></i>Descarcă materialul 1
+                </a>
+                <a href="./resursearh/access2.pdf" download class="w-full bg-red-600 hover:bg-red-700 text-white py-2 rounded-lg font-semibold transition-all group-hover:scale-105 inline-block text-center">
+                    <i class="fa-solid fa-download mr-2"></i>Descarcă materialul 2
+                </a>
+            </div>
+
+            <!-- Calculator -->
+            <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-all cursor-pointer group">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-bold text-gray-900 flex items-center gap-2">
+                        <i class="fa-solid fa-computer text-purple-600"></i> Calculator
+                    </h3>
+                    <span class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">PDF</span>
+                </div>
+                <p class="text-gray-600 mb-4">Componente și funcționarea calculatorului</p>
+                <a href="./resursearh/calculator.pdf" download class="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg font-semibold transition-all group-hover:scale-105 inline-block text-center">
+                    <i class="fa-solid fa-download mr-2"></i>Descarcă PDF
+                </a>
+            </div>
+
+            <!-- CMD -->
+            <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-all cursor-pointer group">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-bold text-gray-900 flex items-center gap-2">
+                        <i class="fa-solid fa-terminal text-gray-700"></i> CMD
+                    </h3>
+                    <span class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">PDF</span>
+                </div>
+                <p class="text-gray-600 mb-4">Comenzi și utilizare Command Prompt</p>
+                <a href="./resursearh/cmd.pdf" download class="w-full bg-gray-700 hover:bg-gray-800 text-white py-2 rounded-lg font-semibold transition-all group-hover:scale-105 inline-block text-center">
+                    <i class="fa-solid fa-download mr-2"></i>Descarcă PDF
+                </a>
+            </div>
+
+            <!-- CSS -->
+            <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-all cursor-pointer group">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-bold text-gray-900 flex items-center gap-2">
+                        <i class="fa-brands fa-css3-alt text-blue-500"></i> CSS
+                    </h3>
+                    <span class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">PDF</span>
+                </div>
+                <p class="text-gray-600 mb-4">Stilizarea paginilor web cu CSS</p>
+                <a href="./resursearh/css.pdf" download class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold transition-all group-hover:scale-105 inline-block text-center">
+                    <i class="fa-solid fa-download mr-2"></i>Descarcă PDF
+                </a>
+            </div>
+
+            <!-- C# -->
+            <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-all cursor-pointer group">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-bold text-gray-900 flex items-center gap-2">
+                        <i class="fa-solid fa-code text-purple-700"></i> C#
+                    </h3>
+                    <span class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">PDF</span>
+                </div>
+                <p class="text-gray-600 mb-4">Programare în limbajul C#</p>
+                <a href="./resursearh/csharp.pdf" download class="w-full bg-purple-700 hover:bg-purple-800 text-white py-2 rounded-lg font-semibold transition-all group-hover:scale-105 inline-block text-center">
+                    <i class="fa-solid fa-download mr-2"></i>Descarcă PDF
+                </a>
+            </div>
+
+            <!-- Excel -->
+            <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-all cursor-pointer group">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-bold text-gray-900 flex items-center gap-2">
+                        <i class="fa-solid fa-file-excel text-green-600"></i> Excel
+                    </h3>
+                    <span class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">PDF</span>
+                </div>
+                <p class="text-gray-600 mb-4">Materiale educaționale pentru Microsoft Excel</p>
+                <a href="./resursearh/excel.pdf" download class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg font-semibold transition-all group-hover:scale-105 inline-block text-center">
+                    <i class="fa-solid fa-download mr-2"></i>Descarcă PDF
+                </a>
+            </div>
+
+            <!-- Fisiere -->
+            <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-all cursor-pointer group">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-bold text-gray-900 flex items-center gap-2">
+                        <i class="fa-solid fa-folder text-yellow-600"></i> Fisiere
+                    </h3>
+                    <span class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">PDF</span>
+                </div>
+                <p class="text-gray-600 mb-4">Gestionarea și organizarea fișierelor</p>
+                <a href="./resursearh/fisiere.pdf" download class="w-full bg-yellow-600 hover:bg-yellow-700 text-white py-2 rounded-lg font-semibold transition-all group-hover:scale-105 inline-block text-center">
+                    <i class="fa-solid fa-download mr-2"></i>Descarcă PDF
+                </a>
+            </div>
+
+            <!-- HTML -->
+            <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-all cursor-pointer group">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-bold text-gray-900 flex items-center gap-2">
+                        <i class="fa-brands fa-html5 text-orange-500"></i> HTML
+                    </h3>
+                    <span class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">PDF</span>
+                </div>
+                <p class="text-gray-600 mb-4">Bazele HTML pentru dezvoltare web</p>
+                <a href="./resursearh/html.pdf" download class="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-lg font-semibold transition-all group-hover:scale-105 inline-block text-center">
+                    <i class="fa-solid fa-download mr-2"></i>Descarcă PDF
+                </a>
+            </div>
+
+            <!-- JavaScript -->
+            <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-all cursor-pointer group">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-bold text-gray-900 flex items-center gap-2">
+                        <i class="fa-brands fa-js text-yellow-400"></i> JavaScript
+                    </h3>
+                    <span class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">PDF</span>
+                </div>
+                <p class="text-gray-600 mb-4">Programare web cu JavaScript</p>
+                <a href="./resursearh/javascript.pdf" download class="w-full bg-yellow-400 hover:bg-yellow-500 text-white py-2 rounded-lg font-semibold transition-all group-hover:scale-105 inline-block text-center">
+                    <i class="fa-solid fa-download mr-2"></i>Descarcă PDF
+                </a>
+            </div>
+
+            <!-- Paint -->
+            <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-all cursor-pointer group">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-bold text-gray-900 flex items-center gap-2">
+                        <i class="fa-solid fa-paint-brush text-pink-600"></i> Paint
+                    </h3>
+                    <span class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">PDF</span>
+                </div>
+                <p class="text-gray-600 mb-4">Utilizarea Microsoft Paint pentru editare imagini</p>
+                <a href="./resursearh/paint.pdf" download class="w-full bg-pink-600 hover:bg-pink-700 text-white py-2 rounded-lg font-semibold transition-all group-hover:scale-105 inline-block text-center">
+                    <i class="fa-solid fa-download mr-2"></i>Descarcă PDF
+                </a>
+            </div>
+
+            <!-- PowerPoint -->
+            <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-all cursor-pointer group">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-bold text-gray-900 flex items-center gap-2">
+                        <i class="fa-solid fa-file-powerpoint text-orange-600"></i> PowerPoint
+                    </h3>
+                    <span class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">PDF</span>
+                </div>
+                <p class="text-gray-600 mb-4">Materiale educaționale pentru MS PowerPoint</p>
+                <a href="./resursearh/powerpoint.pdf" download class="w-full bg-orange-600 hover:bg-orange-700 text-white py-2 rounded-lg font-semibold transition-all group-hover:scale-105 inline-block text-center">
+                    <i class="fa-solid fa-download mr-2"></i>Descarcă PDF
+                </a>
+            </div>
+
+            <!-- Word -->
+            <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-all cursor-pointer group">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-bold text-gray-900 flex items-center gap-2">
+                        <i class="fa-solid fa-file-word text-blue-600"></i> Word
+                    </h3>
+                    <span class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">PDF</span>
+                </div>
+                <p class="text-gray-600 mb-4">Materiale educaționale pentru Microsoft Word</p>
+                <a href="./resursearh/word.pdf" download class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-semibold transition-all group-hover:scale-105 inline-block text-center">
+                    <i class="fa-solid fa-download mr-2"></i>Descarcă PDF
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
     <main id="subiectele" class="py-20 px-6 bg-white">
         <div class="max-w-7xl mx-auto">
             <div class="mb-16">
@@ -409,6 +602,23 @@
             };
             afisareSubiectele(filtru);
         }
+
+        // Funcționalitatea pentru search-bar-ul din nav
+        const searchBar = document.getElementById('search-bar');
+        searchBar.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            const hiddenResources = document.getElementById('hidden-resources');
+            
+            console.log('Search term:', searchTerm); // Pentru debugging
+            
+            if (searchTerm === 'resursearh') {
+                hiddenResources.classList.add('active');
+                hiddenResources.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                console.log('Arhiva Resurse afișată!'); // Pentru debugging
+            } else {
+                hiddenResources.classList.remove('active');
+            }
+        });
 
         window.addEventListener('load', function() {
             afisareSubiectele();
