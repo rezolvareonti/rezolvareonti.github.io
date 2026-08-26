@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        h2 {
+            text-align: center;
+        }
+
+        p {
+            font-size: 30px;
+        }
+
+        table {
+            border-collapse: collapse;
+            border: 3px solid cornflowerblue;
+            margin: 0 auto;         
+            width: 80%;              
+            font-size: 20px;         
+        }
+
+        td {
+            padding: 15px;
+            border: 1px solid cornflowerblue;
+            vertical-align: top;
+        }
+
+        td:nth-child(1), 
+        td:nth-child(3) { /* pentru coloanele 1 și 3 */
+             border: 1px solid azure;
+            background-color: cornflowerblue;
+            color: white;
+        }
+        body{
+            background-color: azure;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Aritmetica numerelor binare</h2>
+
+    <p>
+        Un sistem binar este, în general vorbind, un sistem bazat pe 2 elemente, posibilități, aspecte, părți, etape ș.a.
+        Acest articol descrie numai sistemul de numerație binar, care folosește drept bază numărul 2.
+        Pentru alte sisteme de numerație vezi și articolele Sistem de numerație și Sistem de numerație pozițional.
+    </p>
+
+    <h2>Operatii in sistem binar</h2>
+
+    <table>
+        <tr>
+            <td>Adunarea</td>
+            <td>Scaderea</td>
+            <td>Inmultirea</td>
+        </tr>
+
+        <tr>
+            <td>
+                <ol>
+                    <li>0 + 0 = 0</li>
+                    <li>0 + 1 = 1</li>
+                    <li>1 + 0 = 1</li>
+                    <li>1 + 1 = 10 (se scrie 0 și se adaugă 1 la următoarea coloană)</li>
+                </ol>
+            </td>
+
+            <td>
+                <ol>
+                    <li>0 - 0 = 0</li>
+                    <li>1 - 0 = 1</li>
+                    <li>0 - 1 = 1 (cu împrumut)</li>
+                    <li>1 - 1 = 0</li>
+                </ol>
+            </td>
+
+            <td>
+                <ol>
+                    <li>0 * 0 = 0</li>
+                    <li>0 * 1 = 0</li>
+                    <li>1 * 0 = 0</li>
+                    <li>1 * 1 = 1</li>
+                </ol>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

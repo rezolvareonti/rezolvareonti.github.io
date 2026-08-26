@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<title>Cod binar</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: azure;
+}
+
+/* Container principal */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* STÂNGA */
+.left {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.left img {
+    width: 90%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* CENTRU */
+.center {
+    width: 60%;
+    padding: 20px;
+}
+
+.center p {
+    text-align: justify;
+    line-height: 1.6;
+}
+
+.center ul {
+    list-style-type: circle;
+}
+
+/* DREAPTA */
+.right {
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+}
+
+/* imagini animate */
+.img-box {
+    width: 45%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+}
+
+.img-box img {
+    width: 100%;
+    position: absolute;
+}
+
+/* animație sus -> jos */
+.down {
+    animation: scrollDown 6s linear infinite;
+}
+
+/* animație jos -> sus */
+.up {
+    animation: scrollUp 6s linear infinite ;
+}
+
+@keyframes scrollDown {
+    from { top: -100%; }
+    to { top: 100%; }
+}
+
+@keyframes scrollUp {
+    from { top: 100%; }
+    to { top: -100%; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="left">
+        <img src="img1.jpg">
+        <img src="img2.jpg">
+        <img src="img3.jpg">
+        <img src="img4.jpg">
+        <img src="img5.jpg">
+    </div>
+
+    <div class="center">
+        <h2>Codul binar</h2>
+        <p>
+            Codul binar este sistemul de reprezentare a informației utilizând doar două simboluri: 0 și 1.
+            Acesta este fundamentul tuturor sistemelor informatice moderne, deoarece calculatoarele
+            procesează datele prin circuite electrice care au doar două stări: pornit și oprit.
+        </p>
+
+        <ul>
+            <li>Este baza sistemelor digitale</li>
+            <li>Folosit în programare și hardware</li>
+            <li>Reprezintă date și instrucțiuni</li>
+        </ul>
+
+        <p>
+            Fiecare caracter, imagine sau sunet este convertit în cod binar pentru a fi procesat de calculator.
+        </p>
+    </div>
+
+    <div class="right">
+        <div class="img-box">
+            <img class="down" src="img6.jpg">
+        </div>
+
+        <div class="img-box">
+            <img class="up" src="img7.jpg">
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
